@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Resultado das Eleições 2010</title>
+    <%= stylesheet_link_tag 'index' %>
+    <%= javascript_include_tag 'main' %>
+  </head>
+
+  <body>
+    <div id="page">
+      <header>
+      </header>
+      <%= yield %>
+      <div id="stick"></div>
+    </div>
+    <footer>
+      <p><strong>Resultados das Eleições 2012</strong> é uma aplicação desenvolvida por <a href="http://twitter.com/leandroasp" target="_blank">@leandroasp</a> e layout por <a href="http://twitter.com/cleitonfco" target="_blank">@cleitonfco</a>.</p>
+    </footer>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11362109-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

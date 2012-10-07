@@ -1,0 +1,45 @@
+<section id="main" class="<%= @tipo_cargo %>">
+  <h1><a href="/"><img src="/images/eleicoes-2010.png" alt="Eleições 2010" /></a></h1>
+  
+  <%= show_estados(@estado) %>
+  
+  <%= show_city() %>
+  <h2>Prefeito</h2>
+  <p class="turno"><%= @turno %>° Turno</p>
+
+  <table id="resultado">
+<% @candidatos.each_with_index do |candidato, index| %>
+    <tr class="n_eleito posicao_<%= index %> <%= candidato['situacao'] %>">
+      <td class="nome veja"><%= candidato['nome'].nome_proprio %> - <%= candidato['numero'] %></td>
+      <td class="votos"><%= format_number(candidato['totalVotos']) %> votos</td>
+      <td class="percent veja"><%= percent(candidato['percent']) %>%</td>
+      <td class="partido"><%= candidato['partido'] %></td>
+      <td class="situacao" title="<%= candidato['descricaoSituacao'] %>">&nbsp;</td>
+    </tr>
+<% end %>
+  </table>
+</section>
+
+<aside id="stat">
+  <h3><img src="/images/estatisticas.png" alt="Estatísticas" /></h3>
+  <img src="<%= @graph_apuracao.gsub(/chl/, 'chdl') %>&chco=80C65A|FFFF88" alt="Andamento da Apuração" />
+  <table class="stats">
+    <tr><th>Eleitorado:</th><td><%= format_number(@eleitorado) %></td></tr>
+    <tr><th>Apurados:</th><td><%= format_number(@apurados) %> (<%= percent(@eleitorado_perc_a) %>%)</td></tr>
+    <tr><th>Não apurados:</th><td><%= format_number(@eleitorado.to_i - @apurados.to_i) %> (<%= percent(@eleitorado_perc_n) %>%)</td></tr>
+  </table>
+
+  <img src="<%= @graph_comparecimento.gsub(/chl/, 'chdl') %>&chco=FF8888|224499" alt="Comparecimento" />
+  <table class="stats">
+    <tr><th>Comparecimento:</th><td><%= format_number(@comparecimento) %> (<%= percent(@apurado_perc_c) %>%)</td></tr>
+    <tr><th>Abstenção:</th><td><%= format_number(@abstencao) %> (<%= percent(@apurado_perc_a) %>%)</td></tr>
+  </table>
+
+  <img src="<%= @graph_votos.gsub(/chl/, 'chdl') %>&chco=224499|80C65A|FFFF88|76A4FB" alt="Votos apurados" />
+  <table class="stats">
+    <tr><th>Votos em branco:</th><td><%= format_number(@vb) %> (<%= percent(@votos_perc_b) %>%)</td></tr>
+    <tr><th>Votos nulos:</th><td><%= format_number(@vn) %> (<%= percent(@votos_perc_n) %>%)</td></tr>
+    <tr><th>Votos pendentes:</th><td><%= format_number(@votos_pendente) %> (<%= percent(@votos_perc_p) %>%)</td></tr>
+    <tr><th>Votos válidos:</th><td><%= format_number(@vv) %> (<%= percent(@votos_perc_v) %>%)</td></tr>
+  </table>
+</aside>

@@ -1,0 +1,188 @@
+/* CSS Document */
+* {
+  margin:0;
+  padding:0;
+}
+html {
+  background:#fff url("/images/bg.jpg") center top repeat-x;
+}
+body {
+  background:url("/images/line.png") center 75px repeat-x;
+  text-align:center;
+  font:88%/1.3em Arial, Verdana, sans-serif;
+}
+ul, ol {
+  list-style-type:none;
+}
+a img {
+  border:none;
+}
+#page {
+  width:960px;
+  margin:0 auto;
+  text-align:left;
+  background-color:#fff;
+  overflow:hidden;
+}
+#page header {
+  display:block;
+  padding-top:15px;
+}
+#main {
+  width:650px;
+  float:left;
+  display:block;
+}
+#main h1 {
+  float:left;
+  width:312px;
+  margin-top:11px;
+}
+#main h2 {
+  font-weight:normal;
+  font-size:2em;
+  letter-spacing:1px;
+  margin:40px 0 28px;
+  display:inline;
+  float:left;
+  clear:left;
+}
+#main select {
+	float: left;
+	margin: 23px 0 0 30px;
+}
+.turno {
+  background-color:#aaa;
+  color:#fff;
+  font-size:0.9em;
+  margin:34px 0 0 20px;
+  padding:3px 6px;
+  display:inline;
+  float:left;
+  -webkit-border-radius:12px;
+     -moz-border-radius:12px;
+          border-radius:12px;
+}
+#stat {
+  display:block;
+  width:275px;
+  float:right;
+  padding-top:36px;
+}
+.stats {
+  font-size:0.9em;
+  margin:0 5px 5px;
+}
+.stats th {
+  padding-right:6px;
+}
+#resultado {
+  border-collapse:collapse;
+  width:100%;
+}
+#resultado td {
+  height:50px;
+  border-bottom:1px solid #ccc;
+  font-size:14px;
+  letter-spacing:-0.05em;
+}
+#resultado td.nome {
+  color:#1253a3;
+  font-size:1.2em;
+}
+.majoritaria #resultado .posicao_0 td.nome, .majoritaria #resultado .posicao_1 td.nome, 
+#resultado .eleito td.nome, #resultado .turno2 td.nome {
+  color:#176cd5;
+  font-size:1.4em;
+}
+#resultado td.percent {
+  color:#CC9933;
+  font-size:0.9em;
+}
+#resultado td.percent, #resultado td.votos {
+  text-align:right;
+}
+#resultado td.partido {
+  color:#a0a0a0;
+  text-align:center;
+}
+#resultado td.votos {
+  color:#1e7f00;
+  font-size:0.9em;
+  white-space:nowrap;
+}
+#resultado td.percent, #resultado td.partido, #resultado td.votos {
+  width:5%;
+  padding:0 6px;
+}
+#resultado .eleito td.situacao {
+  width:32px;
+  background:url("/images/eleito.png") 0 8px no-repeat;
+}
+#resultado .turno2 td.situacao {
+  width:32px;
+  background:url("/images/eleito.png") -32px 8px no-repeat;
+}
+#cargos {
+  width:252px;
+  overflow:hidden;
+  float:right;
+}
+#cargos li {
+  float:left;
+  margin:0 2px 4px 10px;
+}
+#cargos .select {
+  color:#656565;
+  font-size:0.9em;
+  margin-right:0;
+}
+#cargos li a {
+  display:block;
+  width:100px;
+  height:17px;
+  padding:5px 7px;
+  background:url("/images/box.png") no-repeat;
+  color:#656565;
+  text-decoration:none;
+}
+#cargos li a:hover {
+  background-position:0 -27px;
+  color:#176cd5;
+}
+
+/* Footer Stick */
+html, body {
+  height:100%;
+}
+#page {
+  height:auto !important;
+  margin:0 auto -40px;
+  min-height:100%;
+}
+#stick {
+  height:40px;
+  padding-bottom:3em;
+  clear:both;
+}
+footer {
+  height:40px;
+}
+
+/* Footer */
+footer {
+  width:100%;
+  text-align:left;
+  display:block;
+  clear:both;
+}
+footer p {
+  width:960px;
+  margin:0 auto;
+  font-size:0.9em;
+  color:#565656;
+}
+footer a {
+  color:#176cd5;
+  font-weight:bold;
+}
