@@ -1,0 +1,5 @@
+rails -v 2.3.8
+nokogiri
+brstring
+googlecharts
+json
