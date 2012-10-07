@@ -57,7 +57,7 @@ module ApplicationHelper
   end
   
   def percent(value)
-    format_number(value*100, 1)
+    format_number(value*100, 2)
   end
   
 end

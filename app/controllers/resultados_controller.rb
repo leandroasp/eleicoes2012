@@ -63,7 +63,7 @@ class ResultadosController < ApplicationController
 
     @eleitorado_perc_a = (@resultado['e'].to_f - @resultado['ena'].to_f) / @resultado['e'].to_i
     @eleitorado_perc_n = @resultado['ena'].to_f / @resultado['e'].to_i
-    @apurado_perc_a = @resultado['ea'].to_f / (@resultado['ea'].to_i + @resultado['c'].to_i)
+    @apurado_perc_a = @resultado['a'].to_f / (@resultado['a'].to_i + @resultado['c'].to_i)
     @apurado_perc_c = @resultado['c'].to_f / (@resultado['a'].to_i + @resultado['c'].to_i)
 
     @votos_perc_b = @resultado['vb'].to_f / @resultado['tv'].to_i
