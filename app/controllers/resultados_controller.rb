@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require "rubygems"
 require "nokogiri"
 require "net/http"
@@ -71,7 +73,7 @@ class ResultadosController < ApplicationController
 
     @graph_apuracao = Gchart.pie(
       :size => '275x160',
-      :labels => ['Apurados', 'Nao apurados'],
+      :labels => ['Apurados', 'Não apurados'],
       :data => [
         @resultado['ea'].to_i,
         @resultado['e'].to_i - @resultado['ea'].to_i
@@ -79,12 +81,12 @@ class ResultadosController < ApplicationController
     )
     @graph_comparecimento = Gchart.pie(
       :size => '275x160',
-      :labels => ['Abstencao', 'Comparecimento'],
+      :labels => ['Abstenção', 'Comparecimento'],
       :data => [@resultado['a'].to_i, @resultado['c'].to_i]
     )
     @graph_votos = Gchart.pie(
       :size => '275x160',
-      :labels => ['Em branco', 'Nulos', 'Pendentes', 'Validos'],
+      :labels => ['Em branco', 'Nulos', 'Pendentes', 'Válidos'],
       :data => [
         @resultado['vb'].to_i,
         @resultado['vn'].to_i,
