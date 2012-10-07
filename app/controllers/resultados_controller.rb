@@ -79,12 +79,12 @@ class ResultadosController < ApplicationController
     )
     @graph_comparecimento = Gchart.pie(
       :size => '275x160',
-      :labels => ['Abstenção', 'Comparecimento'],
+      :labels => ['Abstencao', 'Comparecimento'],
       :data => [@resultado['a'].to_i, @resultado['c'].to_i]
     )
     @graph_votos = Gchart.pie(
       :size => '275x160',
-      :labels => ['Em branco', 'Nulos', 'Pendentes', 'Válidos'],
+      :labels => ['Em branco', 'Nulos', 'Pendentes', 'Validos'],
       :data => [
         @resultado['vb'].to_i,
         @resultado['vn'].to_i,
