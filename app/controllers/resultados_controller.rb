@@ -10,19 +10,19 @@ class ResultadosController < ApplicationController
   end
 
   def uf
-	turnos = {"1turno" => 1, "2turno" => 2}
-	@turno = turnos[params[:turno]].to_s
-	@estado = params[:estado].to_s
+    turnos = {"1turno" => 1, "2turno" => 2}
+    @turno = turnos[params[:turno]].to_s
+    @estado = params[:estado].to_s
   end
 
   def city
-	turnos = {"1turno" => 1, "2turno" => 2}
-	@turno = turnos[params[:turno]].to_s
-	@estado = params[:estado].to_s
+    turnos = {"1turno" => 1, "2turno" => 2}
+    @turno = turnos[params[:turno]].to_s
+    @estado = params[:estado].to_s
   end
 
   def show
-	turnos = {"1turno" => 1, "2turno" => 2}
+    turnos = {"1turno" => 1, "2turno" => 2}
 
     @turno = turnos[params[:turno]].to_s
     @estado = params[:estado].to_s
@@ -69,17 +69,37 @@ class ResultadosController < ApplicationController
     @votos_perc_p = @votos_pendente.to_f / @resultado['tv'].to_f
     @votos_perc_v = @resultado['vv'].to_f / @resultado['tv'].to_i
 
-    @graph_apuracao = Gchart.pie(:size => '275x160', :labels => ['Apurados', 'Não apurados'], :data => [@resultado['ea'].to_i, @resultado['e'].to_i - @resultado['ea'].to_i])
-	@graph_comparecimento = Gchart.pie(:size => '275x160', :labels => ['Abstenção', 'Comparecimento'], :data => [@resultado['a'].to_i, @resultado['c'].to_i])
-    @graph_votos    = Gchart.pie(:size => '275x160', :labels => ['Em branco', 'Nulos', 'Pendentes', 'Válidos'], :data => [@resultado['vb'].to_i, @resultado['vn'].to_i, @votos_pendente, @resultado['vv'].to_i])
+    @graph_apuracao = Gchart.pie(
+      :size => '275x160',
+      :labels => ['Apurados', 'Nao apurados'],
+      :data => [
+        @resultado['ea'].to_i,
+        @resultado['e'].to_i - @resultado['ea'].to_i
+      ]
+    )
+    @graph_comparecimento = Gchart.pie(
+      :size => '275x160',
+      :labels => ['Abstenção', 'Comparecimento'],
+      :data => [@resultado['a'].to_i, @resultado['c'].to_i]
+    )
+    @graph_votos = Gchart.pie(
+      :size => '275x160',
+      :labels => ['Em branco', 'Nulos', 'Pendentes', 'Válidos'],
+      :data => [
+        @resultado['vb'].to_i,
+        @resultado['vn'].to_i,
+        @votos_pendente,
+        @resultado['vv'].to_i
+      ]
+    )
 
-	@eleitorado = @resultado['e']
-	@apurados = @resultado['ea']
-	@comparecimento = @resultado['c']
-	@abstencao = @resultado['a']
-	@vb = @resultado['vb']
-	@vn = @resultado['vn']
-	@vv = @resultado['vv']
+    @eleitorado = @resultado['e']
+    @apurados = @resultado['ea']
+    @comparecimento = @resultado['c']
+    @abstencao = @resultado['a']
+    @vb = @resultado['vb']
+    @vn = @resultado['vn']
+    @vv = @resultado['vv']
   end
 
   #private
